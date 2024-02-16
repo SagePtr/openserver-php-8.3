@@ -1,5 +1,69 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+15 Feb 2024, PHP 8.3.3
+
+- Core:
+  . Fixed timer leak in zend-max-execution-timers builds. (withinboredom)
+  . Fixed bug GH-12349 (linking failure on ARM with mold). (Jan Palus)
+  . Fixed bug GH-13097 (Anonymous class reference in trigger_error / thrown
+    Exception). (nielsdos)
+  . Fixed bug GH-13177 (PHP 8.3.2: final private constructor not allowed
+    when used in trait). (nielsdos)
+  . Fixed bug GH-13215 (GCC 14 build failure). (Remi)
+
+- Curl:
+  . Fix missing error check in curl_multi_init(). (divinity76)
+
+- FPM:
+  . Fixed bug GH-12996 (Incorrect SCRIPT_NAME with Apache ProxyPassMatch when
+    plus in path). (Jakub Zelenka)
+
+- GD:
+  . Fixed bug GH-10344 (imagettfbbox(): Could not find/open font UNC path).
+    (nielsdos)
+  . Fixed bug GH-10614 (imagerotate will turn the picture all black, when
+    rotated 90). (nielsdos)
+
+- LibXML:
+  . Fix crashes with entity references and predefined entities. (nielsdos)
+
+- MySQLnd:
+  . Fixed bug GH-12107 (When running a stored procedure (that returns a result
+    set) twice, PHP crashes). (nielsdos)
+
+- Opcache:
+  . Fixed bug GH-13145 (strtok() is not comptime). (ilutov)
+  . Fixed type inference of range(). (ilutov)
+  . Fixed bug GH-13232 (Segmentation fault will be reported when JIT is off but
+    JIT_debug is still on). (nielsdos)
+
+- OpenSSL:
+  . Fixed LibreSSL undefined reference when OPENSSL_NO_ENGINE not set.
+   (David Carlier).
+
+- PDO_Firebird:
+  . Fix GH-13119 (Changed to convert float and double values ​​into strings using
+    `H` format). (SakiTakamachi)
+
+- Phar:
+  . Fixed bug #71465 (PHAR doesn't know about litespeed). (nielsdos)
+  . Fixed bug GH-13037 (PharData incorrectly extracts zip file). (nielsdos)
+
+- Random:
+  . Fixed bug GH-13138 (Randomizer::pickArrayKeys() does not detect broken
+    engines). (timwolla)
+
+- Session:
+  . Fixed bug GH-12504 (Corrupted session written when there's a fatal error
+    in autoloader). (nielsdos)
+
+- Standard:
+  . Fixed bug GH-13094 (range(9.9, '0') causes segmentation fault). (nielsdos)
+
+- Streams:
+  . Fixed bug GH-13071 (Copying large files using mmap-able source streams may
+    exhaust available memory and fail). (nielsdos)
+
 18 Jan 2024, PHP 8.3.2
 
 - Core:
@@ -29,6 +93,10 @@ PHP                                                                        NEWS
     (Jakub Zelenka)
   . Fixed bug GH-12905 (FFI::new interacts badly with observers). (nielsdos)
 
+- GD:
+  . Fixed GH-13082 undefined behavior with GdFont instances handling with
+    imageload* and imagechar*. (David Carlier)
+
 - Intl:
   . Fixed GH-12943 (IntlDateFormatter::__construct accepts 'C' as valid locale).
     (David Carlier)
@@ -36,6 +104,11 @@ PHP                                                                        NEWS
 - Hash:
   . Fixed bug GH-12936 (hash() function hangs endlessly if using sha512 on
     strings >= 4GiB). (nielsdos)
+
+- MBString:
+  . When operating on a string with invalid encoding, mb_substr (as well
+    as mb_strstr and its variants) defines character indices in the same
+    way as other mbstring functions such as mb_strpos. (Alex Dowad)
 
 - ODBC:
   . Fix crash on Apache shutdown with persistent connections. (nielsdos)
