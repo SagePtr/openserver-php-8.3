@@ -1,5 +1,56 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+14 Mar 2024, PHP 8.3.4
+
+- Core:
+  . Fix ZTS persistent resource crashes on shutdown. (nielsdos)
+
+- Curl:
+  . Fix failing tests due to string changes in libcurl 8.6.0. (Ayesh)
+
+- DOM:
+  . Fix unlikely memory leak in case of namespace removal with extremely deep
+    trees. (nielsdos)
+  . Fix reference access in dimensions for DOMNodeList and DOMNodeMap.
+    (nielsdos)
+
+- Fileinfo:
+  . Fixed bug GH-13344 (finfo::buffer(): Failed identify data 0:(null),
+    backport). (nielsdos)
+
+- FPM:
+  . Fixed bug #75712 (getenv in php-fpm should not read $_ENV, $_SERVER).
+    (Jakub Zelenka)
+
+- GD:
+  . Fixed bug GH-12019 (detection of image formats in system gd library).
+    (Michael Orlitzky)
+
+- MySQLnd:
+  . Fixed bug GH-11950 ([mysqlnd] Fixed not to set CR_MALFORMED_PACKET to error
+    if CR_SERVER_GONE_ERROR is already set). (Saki Takamachi)
+
+- PDO:
+  . Fix various PDORow bugs. (Girgias)
+
+- PGSQL:
+  . Fixed bug GH-13354 (pg_execute/pg_send_query_params/pg_send_execute
+    with null value passed by reference). (George Barbarosie)
+
+- SPL:
+  . Fixed bug GH-13531 (Unable to resize SplfixedArray after being unserialized
+    in PHP 8.2.15). (nielsdos)
+
+- Standard:
+  . Fixed bug GH-13279 (Instable array during in-place modification in uksort).
+    (ilutov)
+  . Fixed array key as hash to string (case insensitive) comparison typo
+    for the second operand buffer size (albeit unused for now). (A. Slepykh)
+
+- XML:
+  . Fixed bug GH-13517 (Multiple test failures when building with
+    --with-expat). (nielsdos)
+
 15 Feb 2024, PHP 8.3.3
 
 - Core:
